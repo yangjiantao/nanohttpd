@@ -33,6 +33,7 @@ package org.nanohttpd.protocols.http.content;
  * #L%
  */
 
+import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,7 +93,7 @@ public class ContentType {
     }
 
     public String getEncoding() {
-        return encoding == null ? ASCII_ENCODING : encoding;
+        return encoding == null ? Charset.defaultCharset().name() : encoding;
     }
 
     public String getBoundary() {
