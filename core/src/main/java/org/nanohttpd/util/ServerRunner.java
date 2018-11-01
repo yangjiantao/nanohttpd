@@ -63,7 +63,7 @@ public class ServerRunner {
             try {
                 System.out.println("server is started.");
                 if (listener != null) {
-                    listener.onStartSuccess();
+                    listener.onStartSuccess(server.getHostname(), server.getListeningPort());
                 }
                 if (downLatch != null) {
                     synchronized (lockObj) {
@@ -106,7 +106,7 @@ public class ServerRunner {
     }
 
     public interface ServerRunStateListener {
-        void onStartSuccess();
+        void onStartSuccess(String ipHost, int port);
 
         void onStartFailed(String msg);
     }
